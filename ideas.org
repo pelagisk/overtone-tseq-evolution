@@ -1,0 +1,157 @@
+Musikidéer
+
+* Programmeringsmiljö
+** Samples
+- Visuellt program för bearbetning av samples.
+- En ordentlig mapp med sorterade ljud.
+** Syntar
+- Overtone
+** Komposition
+- Python med numpy för att generera ljud? Eller Ocaml?
+- Overtone
+- Visuellt program för arrangemang?
+
+
+* Representation och generation
+Datorer _representerar_ ljud. Representationen kan sen tolkas. Med
+andra ord finns alltid (?) _kod/notation/signal_ och
+_läsare/tolk/instrument_. Men representationen sker på många nivåer:
+
+- Digital signal (kod) läses av en DAC. Ljud representerat som en
+  matris av data, där ena dimensionen representerar tid och den andra
+  register (samplerate över tid, bitrate över register). Det går att
+  omforma många typer av data till en tvådimensionell matris. En serie
+  bitar kan läsas in som ett sample i taget. Data i med
+  dimensionalitet 1 eller > 2 kan behandlas som matrisdata efter
+  lämplig omformning. Ljudet representeras som t.ex. en samplad
+  svängning. Skillnaden mot fourierrepresentationen och andra baser
+  att representera data här, är bara relevanta relativt hårdvaran.
+
+- Symboliska representationer av olika slag, tolkade av ett program
+  som kan modulera en digital signal som kan läsas av DAC. Mer
+  specifikt finns historiskt:
+  - Sampler: uppspelning av färdig digital signal och enkel modulation
+    av den signalen. Koden är diskreta ljudhändelser - starta och stoppa etc.
+  - Filter/effekter: analog eller digital behandling av DAC-signal -
+    koden är kontinuerliga förändringar eller diskreta ljudhändelser.
+  - Syntheziser: direkt skapande av en digital signal, oftast från
+    vågformer och filter. Koden är kontinuerlig och diskret.
+  Det går att tänka sig mellanting eller kanske nya sätt att modulera
+  en DAC-signal. Det är också viktigt om instrumentet:
+  - modulerar i realtid eller behandlar en hel DAC-kod (matris)
+    samtidigt (realtidseffekt eller renormalisering t.ex.)
+  - unär-binär-...: behandlar en eller flera DAC-signaler (polyfoni,
+    mixer osv.)
+  Symboliska representationer har kod som är antinge kontinuerligt
+  varierande eller består av diskreta ljudhändelser:
+  - Diskret kod: start/stopp/på/av osv. vid viss tid. Lätt att
+    representera i ett program med en tid och en etikett.
+  - Kontinuerlig ljudhändelse: kan representeras i ett program genom
+    samples eller genom ljudhändelser och interpolation. I praktiken
+    kommer svårigheten av representera kontinuerlig variation att
+    påverka kompositören.
+
+Den första nivån (DAC) är intressant för konstnärliga experiment, men
+i praktiken arbetar vi alltid med paketerade "instrument" som
+relaterar till en symbolisk kod. Det är en intressant gräns att
+utforska - det som är tillräckligt obekant för att lyssnaren ska kunna
+höra något nytt. När blir ett "instrument" i datorn för begränsat
+eller för öppet?
+
+Även över DAC-nivån så finns det flera nivåer i praktiken. Att arbeta
+med t.ex. ProTools eller Ableton leder till en viss ljudbild. Det är
+inte att förakta att paketera - däremot är det intressant att sätta
+själva paketeringen av instrument i rörelse! Där är programmering
+viktigt. Datorns ljud är socialt intressanta bara när de kan anpassas
+till en kulturell ljudbild, men det betyder inte att deras särart är
+ointressant. Datorljudet påverkar vår kultur och vice versa. Datorljud
+är särskilt plastiskt och kan ta många olika former även om det är
+väldigt lågentropiskt i allmänhet. Det tillåter dynamik både inom en
+"låt" och mellan olika snabbt föränderliga genres. Just på grund av
+det plastiska i datorns ljud så har datorer ofta _modellerat_ ljud som
+inspirerats av världen utanför datorn. Vår fantasi räcker inte till
+för att beskriva alla de ljud som en dator är kapabel till att skapa!
+
+
+* Datorljud och multimedia:
+Gränsen mellan ljud och bild och video m.m. är bara relativt
+tolken. En DAC kan ersättas av en skärm eller en robotarm, och en
+digital signal kan styra många olika apparater. Gränsen kan komma att
+bli otydlig, även om användningen av datorer för ljud och bild ser
+väldigt olika ut än så länge.
+
+
+* Datorljud och komplexitet
+De flesta metoder för att modulera en DAC-signal är matematiskt enkla,
+och den enkelheten återspeglas i kvaliteten hos ljudet. Människan har
+en känslig förmåga att skapa skapa och höra klanger och rytmer. Vad
+som är enkelt intuitivt är absolut inte enkelt matematiskt. Det är där
+som datorn blir synlig som instrument, datorns klang. Trots det är
+datorer absolut inte lika kapabel till alla klanger. Särskilt när
+datorn syntetiserar DAC-signalen men även när den återger ljud så
+märks vissa typiska artefakter.
+
+"Analoga" instrument skapar ljud utan att behöva eller kunna påverka
+på samma sätt, och skapar oftast oundlikligen rika klanger. Att
+använda datorn tillsammans med analoga instrument (genom sampling,
+gränssnitt etc.) ger möjlighet till blandningar.
+
+
+* Datorljud i sig och konst
+Det är också möjligt att konstnärligt tänka på datorn och dess ljud
+som en önskvärd begränsning, att undersöka den världen. Matematiken
+utforskar systematiskt formella system av kategorier. Konsten kan
+också utforska datorljud i detalj inifrån. Självklart finns det inga
+"rena" datorljud - samplade data kan också räknas med. Men om vi
+väljer att undersöka ljud skapade med syntar och effekter så har vi
+redan där möjlighet att undersöka ett otroligt brett
+register. "Djupet" i strukturerna är det som framför allt är
+outforskat! Alltså inte de rena effekterna utan komplexiteten i
+strukturer. Som jag skrev ovan: vår fantasi räcker inte till för att
+beskriva vad datorn kan åstadkomma i form av ljud! Datorn är ett
+fysikaliskt system som kan beskriva vissa matematiska
+strukturer. Andra är svåråtkomliga eller ligger utom räckhåll på grund
+av datorns seriella natur.
+
+Det finns många intressanta strukturer:
+- generaliserade oscillatorer: godtyckliga vågknippen som utvecklas
+  över tid enligt vissa regler
+- diskreta och kontinuerliga symmetrigrupper samt transformationer
+- kopplade system av effekter och oscillatorer m.m.
+
+Olika modeller - instrumentuppställningar - paketeringar i
+"instrument". Varje sådan värld är ett intressant val i sig:
+- beskriv direkt DAC-signalen i dess fourierkomponenter. Regler för
+  komponenternas utveckling över tid och deras sammankoppling. Lätt
+  att beskriva kopplade system av differentialekvationer i detta
+  system. Globala regler är i detta fall helt ekvivalenta.
+- ett gitter. Placera händelser enligt lokala eller globala regler. En
+  uppdelning i tiden given. Det går även att tänka sig flera
+  dimensioner på gittret. I varje tidsenhet kan ljudhändelser fördelas
+  över gittrets övriga dimensioner. Det tillåter den enskilda
+  ljudhändelsen eller gittret att variera i komplexitet. I kulisserna
+  finns ett antal givna instrument och möjliga ljudhändelser samt
+  mixer för att sammanfoga dem. Det är lika mycket en del av modellen!
+- uppdelning mellan kod och tolkning: clojure-kod läses av macros och
+  avbildas som ljud. Tillåter väldigt generell bearbetning av sexps
+  men är komplicerat att implementera.
+
+Det finns många metoder för att utforska ljuden:
+- lokala regler (varje del följer reglerna).
+- globala regler (delarna måste anpassa sig till helheten). Tyngre att
+  beräkna men mer generellt!
+- symmetribrott.
+- slumpgeneratorer, instabiliteter eller kaosprocesser.
+- att försöka slumpmässigt sammanfoga instrument? Försök generalisera
+  så långt som möjligt?
+
+Speciella fenomen:
+- cellulära automata
+- vågekvationer med olika randvillkor - cylindriskt, sfäriskt?
+- blochvågor - mathieuekvationen.
+- kvasikristaller, tesselering.
+- topologi - gå bortom euklidiskt rum? en manifold M med en tensor i
+  varje punkt. Bädda in och avbilda på endimensionellt rum. Exempelvis
+  ett skalärfält i ett krökt rum i en dimension analogt med en
+  endimensionell allmän relativitetsteori.
+- kynomatik? I alla fall visuella vågexperiment.

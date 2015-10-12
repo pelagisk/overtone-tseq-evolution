@@ -1,0 +1,28 @@
+* Additiva grupper - harmoni
+Målet är att skapa gruppteoretiska verktyg för att generera harmonier
+när det gäller tonhöjd, och andra egenskaper i andra fall. Inte bygga
+på skalor, utan på olika typer av grupper. Tillåta olika 'operatorer'
+för att höja och sänka noter.
+
+** DONE residualklasser för heltalen, modulo n
+   CLOSED: [2015-09-06 Sun 12:59]
+** DONE negation, disjunktion, negation och intersektion
+   CLOSED: [2015-09-06 Sun 12:59]
+** TODO boolesk algebra för mängder av ljudhändelser?
+
+
+* Uppspelning
+Skapa flexibla verktyg för att mata in data från fil och få ut
+ljud. Formatet kan bli bestämmande för senare arbetssätt.
+
+* Experiment
+** Techno + gruppteori 1
+Skapa verktyg för att göra enkla, vanliga variationer av rytm och
+melodi i techno. Fundera på långsamma kontinuerliga förändringar.
+
+** Cellulära automata och ljud
+Experimentera med automata och generalisera: kan techno beskrivas som
+en cellulär automaton som långsamt driver eller fångas i olika attraktorer.
+
+** Fasövergångar
+Tonsätt en enkel fasövergång: Ising?
