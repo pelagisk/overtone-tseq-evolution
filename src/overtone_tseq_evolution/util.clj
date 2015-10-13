@@ -1,5 +1,4 @@
-(ns composition.util
-  (:use [overtone.live]))
+(ns overtone-tseq-evolution.util)
 
 (defn fn-pow
   "Compose f n times and apply to x"
@@ -22,8 +21,8 @@
   "Matrix multiplication representing linear operators"
   [mat1 mat2]
   (let [row-mult (fn [mat row]
-                   (map (partial composition.util/dot-product row)
-                        (composition.util/transpose mat)))]
+                   (map (partial dot-product row)
+                        (transpose mat)))]
     (map (partial row-mult mat2) mat1)))
 
 (defn midi-number-seq-to-time-seq

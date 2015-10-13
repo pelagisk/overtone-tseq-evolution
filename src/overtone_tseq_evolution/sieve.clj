@@ -1,6 +1,6 @@
-(ns composition.sieve
-  (:use [overtone.live
-         composition.util]))
+(ns overtone-tseq-evolution.sieve
+  (:use [overtone-tseq-evolution.util]
+        ;; [overtone-tseq-evolution.tseq]))
 
 (defn residual
   "Sieve of residual class k, modulo n of integers"
@@ -83,8 +83,8 @@
   "Displaces i by d in group g"
   [d g i]
   (if (>= d 0)
-    (composition.util/fn-pow #(g-inc %1 g) i d)
-    (composition.util/fn-pow #(g-dec %1 g) i (- d))))
+    (fn-pow #(g-inc %1 g) i d)
+    (fn-pow #(g-dec %1 g) i (- d))))
 
 (defn group-disp-seq
   "Takes a seq of displacements on a group and returns a seq of
@@ -92,8 +92,8 @@
   [disps g coll i]
   (let [f (first disps)]
     (if f
-      (let [j (composition.sieve/group-disp f g i)]
-        (composition.sieve/group-disp-seq (rest disps) g (conj coll j) j))
+      (let [j (group-disp f g i)]
+        (group-disp-seq (rest disps) g (conj coll j) j))
       coll)))
 
 ;; Then finally, work with a set of displacements and play each of the notes

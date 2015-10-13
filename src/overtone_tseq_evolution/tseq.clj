@@ -1,6 +1,6 @@
-(ns composition.tseq
+(ns overtone-tseq-evolution.tseq
   (:use [overtone.live]
-        [composition.util]))
+        [overtone-tseq-evolution.util]))
 
 ;; Mapping of sequences
 
@@ -16,18 +16,18 @@
         theparts (take period lazyseq)
         newseq (reduce into theparts)]
     (sort-by first
-             (map #(composition.tseq/map-event-periodic f g period %1) newseq))))
+             (map #(map-event-periodic f g period %1) newseq))))
 
 (defn map-seq-periodic-scalar
   "Like map-seq-periodic but assumes that g is a scalar function"
   [f g period seq]
-  (composition.tseq/map-seq-periodic f #(map g %1) period seq))
+  (map-seq-periodic f #(map g %1) period seq))
 
 (defn map-seq-periodic-linear
   "Apply a scalar function to first and a linear transformation to rest"
   [f m period seq]
-  (composition.tseq/map-seq-periodic
-   f #(composition.util/matrix-mult m %1) period seq))
+  (map-seq-periodic
+   f #(matrix-mult m %1) period seq))
 
 (defn apply-piecewise
   "Apply functions p piecewise to x. May be thought of as t-part input
@@ -68,10 +68,10 @@
     (doseq [[t e] seq]
       (at (+ (* tick t) (nome beat)) (apply instrument e)))
     (apply-by (nome (+ beat period))
-              composition.tseq/play-inst-seq-loop nome period instrument seq [])))
+              play-inst-seq-loop nome period instrument seq [])))
 
 (defn play-inst-seqs-loop
   "Play a collection of instrument/t-seq pairs"
   [nome period seqs]
   (doseq [[seq instrument] seqs]
-    (composition.tseq/play-inst-seq-loop nome period instrument seq)))
+    (play-inst-seq-loop nome period instrument seq)))

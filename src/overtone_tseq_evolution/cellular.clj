@@ -1,6 +1,4 @@
-;; Cellular automata!
-
-(ns cellular
+(ns overtone-tseq-evolution.cellular
   (:use [overtone.live]))
 
 (definst beep [freq 440]
@@ -128,8 +126,8 @@
 (def multum-in-parvo #{[0 -2] [1 -2] [2 -2] [-1 -1] [2 -1] [-2 0] [-3 1]})
 (def x66 #{[-24 -5] [-26 -4] [-25 -4] [-26 -3] [-23 -3] [-22 -3] [-21 -3] [-18 -3] [-26 -2] [-21 -2] [-20 -2] [-19 -2] [-25 -1] [-24 -1] [-23 -1] [-20 -1] [-19 -1] [-25 1] [-24 1] [-23 1] [-20 1] [-19 1] [-26 2] [-21 2] [-20 2] [-19 2] [-26 3] [-23 3] [-22 3] [-21 3] [-18 3] [-26 4] [-25 4] [-24 5]})
 
-(beep 600)
+;; (beep 600)
 
-(play-cellular (now) 200 x66 beep-note)
+;; (play-cellular (now) 200 x66 beep-note)
 
-(stop)
+;; (stop)
